@@ -1,0 +1,44 @@
+# tasks file for at-client
+---
+- name: create required directories
+  file:
+    path: "{{ item.dest }}"
+    state: directory
+    owner: root
+    group: root
+    mode: "{{ item.mode }}"
+  with_items:
+    - dest: "{{ at_client_configuration_directory }}"
+      mode: '0700'
+  tags:
+    - configuration
+    - at-client
+    - at-client-configuration
+    - at-client-configuration-directories
+
+- name: copy key file(s)
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ at_client_configuration_directory }}/{{ item.dest | default(item.src | basename) }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default(item.owner) | default('root') }}"
+    mode: "{{ item.mode | default('0600') }}"
+  with_items: "{{ at_client_key_map }}"
+  tags:
+    - configuration
+    - at-client
+    - at-client-configuration
+    - at-client-configuration-keys
+
+- name: generate script
+  template:
+    src: usr/local/bin/at-ssh.j2
+    dest: /usr/local/bin/at-ssh
+    owner: root
+    group: root
+    mode: 0755
+    validate: '/usr/bin/env bash -n %s'
+  tags:
+    - configuration
+    - at-client
+    - at-client-script
