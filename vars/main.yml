@@ -1,0 +1,3 @@
+# vars file for at-client
+---
+at_client_configuration_directory: /etc/at

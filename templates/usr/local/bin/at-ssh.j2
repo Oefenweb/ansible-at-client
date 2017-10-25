@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# {{ ansible_managed }}
+#
+# set -x;
+set -e;
+set -o pipefail;
+#
+thisFile="$(readlink -f "${0}")";
+thisFilePath="$(dirname "${thisFile}")";
+
+if [ -z "${1}" ] || [ "${1}" != '-h' ] || [ -z "${2}" ]; then
+  echo "Usage: ${0} -h example.com now";
+  exit 1;
+fi
+
+hostname="${2}";
+shift 2;
+
+cat | ssh -T -i '{{ at_client_configuration_directory }}/{{ at_client_identity }}' "{{ at_client_user }}@${hostname}" "cat | at "$@"";
