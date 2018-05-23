@@ -10,7 +10,7 @@ thisFile="$(readlink -f "${0}")";
 thisFilePath="$(dirname "${thisFile}")";
 
 function usage {
-  echo "Usage: $0 [-h example.com] [-i id_rsa ] now" 1>&2;
+  echo "Usage: ${0} [-h example.com] [-i id_rsa ] now" 1>&2;
   exit 1;
 }
 
