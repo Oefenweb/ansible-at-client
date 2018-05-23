@@ -19,7 +19,6 @@ Set up a persistent channel for queuing commands (using `at`) in Debian-like sys
 * `at_client_key_map.{n}.mode`: [optional, default `0600`]: The mode of the file to copy
 
 * `at_client_user`: [default: `at`]: Remote user for connection
-* `at_client_identity`: [default: `id_rsa`]: Identity for connection
 
 ## Dependencies
 
@@ -39,13 +38,13 @@ None
     - at-client
   vars:
     at_client_key_map:
-      - src: ../../../files/at-client/etc/autossh/id_rsa
+      - src: ../../../files/at-client/etc/at/id_rsa
 ```
 
 You will be able to schedule a command on `example.com` using:
 
 ```bash
-at-ssh -h example.com now <<EOF
+at-ssh -h example.com -i id_rsa now <<EOF
 hostname -f;
 EOF
 ```
@@ -53,7 +52,7 @@ EOF
 or
 
 ```bash
-echo 'hostname -f' | at-ssh -h example.com now;
+echo 'hostname -f' | at-ssh -h example.com -i id_rsa now;
 ```
 
 #### License
