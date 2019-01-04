@@ -1,6 +1,7 @@
 # meta file for at-client
 ---
 galaxy_info:
+  role_name: at-client
   author: Mischa ter Smitten
   company: Oefenweb.nl B.V.
   description: Set up a persistent channel for queuing commands (using at) in Debian-like systems (client side)
@@ -12,6 +13,7 @@ galaxy_info:
         - precise
         - trusty
         - xenial
+        - bionic
     - name: Debian
       versions:
         - wheezy
