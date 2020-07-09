@@ -4,9 +4,8 @@
   remote_user: vagrant
   become: true
   pre_tasks:
+    - name: include vars
+      include_vars: main.yml
     - include: pre.yml
   roles:
     - ../../
-  vars:
-    at_client_key_map:
-      - src: "{{ playbook_dir }}/../files/id_rsa"
