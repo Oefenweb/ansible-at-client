@@ -1,6 +1,6 @@
 ## at-client
 
-[![Build Status](https://travis-ci.org/Oefenweb/ansible-at-client.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-at-client)
+[![CI](https://github.com/Oefenweb/ansible-at-client/workflows/CI/badge.svg)](https://github.com/Oefenweb/ansible-at-client/actions?query=workflow%3ACI)
 [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-at--client-blue.svg)](https://galaxy.ansible.com/Oefenweb/at-client/)
 
 Set up a persistent channel for queuing commands (using `at`) in Debian-like systems (client side).
