@@ -2,6 +2,9 @@
 ---
 at_client_key_map:
   - src: "{{ at_client_private_key_file }}"
+    remote_src: true
 
-at_client_ssh_directory: "{{ playbook_dir }}/../files"
+at_client_ssh_directory: "~{{ ansible_user_id }}/.ssh"
 at_client_private_key_file: "{{ at_client_ssh_directory }}/id_rsa"
+at_client_public_key_file: "{{ at_client_private_key_file }}.pub"
+at_client_authorized_keys_file: "{{ at_client_ssh_directory }}/authorized_keys"
