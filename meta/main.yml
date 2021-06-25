@@ -2,7 +2,7 @@
 ---
 galaxy_info:
   namespace: oefenweb
-  role_name: at-client
+  role_name: at_client
   author: Mischa ter Smitten
   company: Oefenweb.nl B.V.
   description: Set up a persistent channel for queuing commands (using at) in Debian-like systems (client side)
