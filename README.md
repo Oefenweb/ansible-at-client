@@ -36,7 +36,7 @@ None
 ---
 - hosts: all
   roles:
-    - at-client
+    - oefenweb.at-client
   vars:
     at_client_key_map:
       - src: ../../../files/at-client/etc/at/id_rsa
