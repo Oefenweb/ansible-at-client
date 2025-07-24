@@ -13,7 +13,9 @@ Set up a persistent channel for queuing commands (using `at`) in Debian-like sys
 #### Variables
 
 * `at_client_key_map`: [default: `[]`]: SSH key declarations
-* `at_client_key_map.{n}.src`: [required]: The local path of the file to copy, can be absolute or relative (e.g. `../../../files/at/home/at/.ssh/id_rsa`)
+* `at_client_key_map.{n}.src`: [required, if `content` is not set]: The path of the file to copy, can be absolute or relative (e.g. `../../../files/at/home/at/.ssh/id_rsa`)
+* `at_client_key_map.{n}.remote_src`: [optional]: Whether the `src` is on the remote
+* `at_client_key_map.{n}.content`: [required, if `src` is not set]: The content to copy
 * `at_client_key_map.{n}.dest`: [optional, default `src | basename`]: The remote path of the file to copy, relative to `/etc/at` (e.g. `id_rsa`)
 * `at_client_key_map.{n}.owner`: [optional, default `root`]: The name of the user that should own the file
 * `at_client_key_map.{n}.group`: [optional, default `owner`, `root`]: The name of the group that should own the file
