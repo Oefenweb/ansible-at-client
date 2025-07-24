@@ -1,6 +1,6 @@
 # pre test file
 ---
-- name: install dependencies
+- name: pre | install dependencies
   ansible.builtin.apt:
     name:
       - openssh-client
@@ -8,15 +8,15 @@
     update_cache: true
     cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
 
-- name: add ssh directory
+- name: pre | add ssh directory
   ansible.builtin.file:
     path: "{{ at_client_ssh_directory }}"
     state: directory
     owner: root
     group: root
-    mode: 0700
+    mode: '0700'
 
-- name: generate key pair
+- name: pre | generate key pair
   ansible.builtin.command: >
     ssh-keygen -t rsa -b 2048 -C '' -P '' -f {{ at_client_private_key_file }} -q
   args:
