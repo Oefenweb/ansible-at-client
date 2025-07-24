@@ -37,7 +37,7 @@
     dest: /usr/local/bin/at-ssh
     owner: root
     group: root
-    mode: 0755
+    mode: '0755'
     validate: '/usr/bin/env bash -n %s'
   tags:
     - configuration
